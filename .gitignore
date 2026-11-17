@@ -1,0 +1,16 @@
+# Gradle / Android
+.gradle/
+.kotlin/
+build/
+app/build/
+local.properties
+*.apk
+*.aab
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Mapas exportados
+*.ply
