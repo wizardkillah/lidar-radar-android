@@ -773,6 +773,9 @@ class MainActivity : Activity(), GLSurfaceView.Renderer {
         Thread {
             try {
                 val name = "mapa_${System.currentTimeMillis() / 1000}.ply"
+                // Antes de Android 10 no hay MediaStore.Downloads: se guarda en la carpeta de la app.
+                val destino = if (Build.VERSION.SDK_INT >= 29) "Descargas/$name"
+                              else File(getExternalFilesDir(null), name).absolutePath
                 val out = if (Build.VERSION.SDK_INT >= 29) {
                     val values = ContentValues().apply {
                         put(MediaStore.Downloads.DISPLAY_NAME, name)
@@ -800,7 +803,7 @@ class MainActivity : Activity(), GLSurfaceView.Renderer {
                         i += PointCloud.STRIDE
                     }
                 }
-                setStatus("Guardado en Descargas/$name ($count puntos)")
+                setStatus("Guardado en $destino ($count puntos)")
             } catch (e: Exception) {
                 setStatus("Error al guardar: ${e.message}")
             }

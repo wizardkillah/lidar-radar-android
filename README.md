@@ -17,7 +17,7 @@ Desarrollada y probada en un Redmi Note 13 Pro 5G.
 - Compuerta de captura: solo integra con desplazamiento real (paralaje) y sin giros bruscos.
 - Piso real detectado con planos de ARCore.
 - Corrección de deriva: la nube se guarda en bloques unidos a anclas de ARCore.
-- Exportación a **PLY** (carpeta Descargas), compatible con CloudCompare / MeshLab.
+- Exportación a **PLY** compatible con CloudCompare / MeshLab: en la carpeta Descargas desde Android 10, y en la carpeta de la app en Android 7 a 9.
 - Radar 2D cenital en miniatura.
 
 ## Estructura
@@ -53,3 +53,7 @@ La APK queda en `app/build/outputs/apk/debug/app-debug.apk`. Crear `local.proper
 - La profundidad es **estimada** (no hay sensor ToF/LiDAR): ruidosa y con alcance útil ~3 m.
 - La banda de sonar no está calibrada para todos los dispositivos.
 - La deriva solo se corrige donde ARCore reconoce lugares ya vistos.
+
+## Autor y licencia
+
+Diseño e implementación: **Francois Rojo** (Chile). Licencia MIT (ver [`LICENSE`](LICENSE)). ARCore es de Google y se usa como dependencia con su propia licencia.
